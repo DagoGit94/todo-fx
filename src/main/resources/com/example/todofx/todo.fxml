@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.todofx.TodoController"
+      spacing="12">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Ligne 1 : champ texte + bouton Ajouter -->
+    <HBox spacing="10">
+        <TextField fx:id="inputField"
+                   promptText="Nouvelle tâche..."
+                   HBox.hgrow="ALWAYS"/>
+        <Button text="Ajouter"
+                onAction="#handleAdd"
+                defaultButton="true"/>
+    </HBox>
+
+    <!-- Ligne 2 : la liste des tâches -->
+    <ListView fx:id="taskList" VBox.vgrow="ALWAYS"/>
+
+    <!-- Ligne 3 : boutons d'action + compteur -->
+    <HBox spacing="10">
+        <Button text="Terminer / Rouvrir" onAction="#handleToggle"/>
+        <Button text="Supprimer"           onAction="#handleDelete"/>
+        <Button text="Tout effacer"        onAction="#handleClearAll"/>
+        <Label fx:id="statusLabel" text="0 / 0 terminée(s)" styleClass="status-label"/>
+    </HBox>
+
+</VBox>
